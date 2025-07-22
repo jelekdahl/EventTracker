@@ -220,7 +220,10 @@
             <div class="col-12 col-lg-4">
               <p>
                 This function is called when the app is loaded, and every time
-                the user updates the table of events (by adding rows). It populates
+                the user updates the table of events (by adding rows).
+              </p>
+              <p>
+                It populates
                 the dropdown used to filter by city, with all the unique city
                 names present in the recorded events. It does so by constructing a
                 Set from an array of each event's city name, mapped from the array
@@ -269,10 +272,16 @@
               <p>
                 This function returns all of the events recorded in local storage.
                 It is used when building the dropdown, filtering the table, and/or
-                saving a new event. If the app has no data recorded in local storage,
+                saving a new event.
+              </p>
+              <p>
+                If the app has no data recorded in local storage,
                 the array of default event objects is recorded and then returned.
                 Otherwise, the array of recorded events is pulled from local storage
-                and returned. The default array is converted into a string in
+                and returned.
+              </p>
+              <p>
+                The default array is converted into a string in
                 JavaScript Object Notation (JSON) format before storage. When pulled,
                 the recorded JSON data is parsed and converted back into an array of
                 event objects.
@@ -309,7 +318,10 @@
                 storage. It is called in two situations: first, when the user
                 creates a new event to add to the collection of recorded ones; and
                 second, to save the default events to local storage after an attempt
-                to pull from local storage produces no data. The array is converted
+                to pull from local storage produces no data.
+              </p>
+              <p>
+                The array is converted
                 into a string in JavaScript Object Notation (JSON) format before
                 being saved into local storage. When saved, this string will replace
                 the preexisting one (if present).
@@ -384,11 +396,13 @@
               <p>
                 This function is used to populate the events table with a passed-in
                 array of event objects. It is called when building the city-filtering
-                dropdown, and also when filtering the table by city. The function
-                starts with emptying the table of all its contents. Then
-                it iterates through the elements of the passed-in array, creates a
-                new row element for each one, and inserts them into the events
-                table.
+                dropdown, and also when filtering the table by city.
+              </p>
+              <p>
+                The function starts with emptying the table of all its contents.
+                Then it iterates through the elements of the passed-in array,
+                creates a new row element for each one, and inserts them into the
+                events table.
               </p>
             </div>
           </div>
@@ -439,12 +453,14 @@
                 This function is used to calculate four stats - total, average,
                 maximum, and minimum attendance counts - for a passed-in array
                 of event objects. It is called when updating the stats summary
-                section based on this array. All four stats are contained in a
-                single object that gets returned in the end. To calculate these
-                stats, the array is iterated through once, and each stat is updated
-                at every point in the loop. The one exception is the average, which
-                is calculated *after* iterating through the array; this minimizes the
-                number of divisions needed.
+                section of the app based on this array.
+              </p>
+              <p>
+                All four stats are contained in a single object that gets returned
+                in the end. To calculate these stats, the array is iterated through
+                once, and each stat is updated at every point in the loop. The one
+                exception is the average, which is calculated *after* iterating
+                through the array; this minimizes the number of divisions needed.
               </p>
             </div>
           </div>
@@ -480,6 +496,8 @@
                 This function is used update the stats summary section according to
                 a passed-in array of event objects. It is called when building the
                 city-filtering dropdown, and when filtering the event table by city.
+              </p>
+              <p>
                 When called, this function first calls <code>calculateStats</code>
                 to calculate the total, average, minimum, and maximum attendance
                 counts for the passed-in array. Then these values are inserted into
@@ -531,12 +549,15 @@
               <p>
                 This function is used to filter the events table by city. It is
                 called any time the user selects a new option in the
-                city-filtering dropdown. When called, this function retrieves the
-                array of recorded event objects. From that array, a new one is
-                created via the <code>filter</code> array method. This new array
-                contains only the event objects whose city name matches the
-                passed-in value. The events table and stats summary section are
-                then updated according to this new array.
+                city-filtering dropdown.
+              </p>
+              <p>
+                When called, this function retrieves the array of recorded event
+                objects. From that array, a new one is created via the
+                <code>filter</code> array method. This new array contains only the
+                event objects whose city name matches the passed-in value. The
+                events table and stats summary section are then updated according
+                to this new array.
               </p>
             </div>
           </div>
@@ -595,11 +616,13 @@
                 This function is used to save a new user-inputted event to local
                 storage with all the other recorded events. It is called any time
                 the user appropriately fills the form on the "Add A New Event"
-                modal and clicks the Save button. The form entries are used to
-                create a new event object. Then the array of existing recorded
-                event objects is retrieved, and this new object is added onto the
-                end of it. This new array is then saved to local storage. Finally,
-                the modal is cleared and hidden, and - via
+                modal and clicks the Save button.
+              </p>
+              <p>
+                The form entries are used to create a new event object. Then the
+                array of existing recorded event objects is retrieved, and this new
+                object is added onto the end of it. This new array is then saved to
+                local storage. Finally, the modal is cleared and hidden, and - via
                 <code>buildDropdown</code> - updates are made to the city-filtering
                 dropdown, events table, and stats summary section to include the
                 newly-added event.
